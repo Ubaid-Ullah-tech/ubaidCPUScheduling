@@ -1,0 +1,28 @@
+.app-container {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  
+  .process-form input {
+    margin-right: 10px;
+  }
+  
+  .process-table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+  }
+  
+  .process-table th, .process-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .visualization {
+    margin-top: 30px;
+  }
+  
+  .algorithm-selector {
+    margin-top: 20px;
+  }
+  
