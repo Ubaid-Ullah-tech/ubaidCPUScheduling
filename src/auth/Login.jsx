@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { Button } from "@mui/material";
 import abid from '../assets/file.jpg';
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -28,17 +29,16 @@ const Login = () => {
     }
   };
 
-  // Inline styles
+  // Inline styles for responsiveness
   const styles = {
     loginContainer: {
-      display: "",
+      display: "flex",
+      flexDirection: "column",
       justifyContent: "center",
       alignItems: "center",
-      height: "85vh",
+      height: "100vh",
       backgroundColor: "#e0f0f0",
-      padding: "10px",
-      marginTop:'25%',
-      marginBottom:'20%'
+      padding: "20px",
     },
     form: {
       backgroundColor: "white",
@@ -71,18 +71,30 @@ const Login = () => {
     buttonHover: {
       backgroundColor: "#0056b3",
     },
+    imageContainer: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      marginBottom: "20px",
+    },
+    image: {
+      height: "80px",
+      width: "80px",
+      borderRadius: "50%",
+      marginBottom: "10px",
+    },
+    text: {
+      fontSize: "18px",
+      fontWeight: "bold",
+    },
   };
 
   return (
-    <div 
-    className="mx-3 rounded-3xl bg-slate-400"
-    style={styles.loginContainer}>
-         <div className="flex flex-col justify-center items-center mb-5">
-          <img 
-          className="h-20 w-20 rounded-full mb-5"
-          src={abid} alt="" />
-          <p>Login_Page</p>
-         </div>
+    <div style={styles.loginContainer}>
+      <div style={styles.imageContainer}>
+        <img style={styles.image} src={abid} alt="Profile" />
+        <p style={styles.text}>Login Page</p>
+      </div>
       <form style={styles.form} onSubmit={handleLogin}>
         <input
           style={styles.input}
@@ -100,15 +112,23 @@ const Login = () => {
           placeholder="Password"
           required
         />
-        <button className="my-4" style={styles.button} type="submit">
+        <button
+          className="my-4"
+          style={styles.button}
+          type="submit"
+        >
           Login
         </button>
         <div>
-          <p className="my-4">If you are not registered yet, please register first</p>
-          <Link to='/register'>
-          <Button variant="contained" color="primary" onClick={() => navigate("/login")}>
-            Register
-          </Button>
+          <p>If you are not registered yet, please register first</p>
+          <Link to="/register">
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={() => navigate("/login")}
+            >
+              Register
+            </Button>
           </Link>
         </div>
       </form>
